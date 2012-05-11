@@ -6,6 +6,13 @@
 		<style type="text/css" media="screen">
 			
 		</style>
+		<r:script>
+          $(document).ready(function() {
+			  if (window.location.hash == '#_=_') {
+			  	window.location = window.location.href.substr(0, window.location.href.indexOf('#'));
+			  }
+			});
+      	</r:script>
 	</head>
 	<body>
 		<div id="page-body" role="main">

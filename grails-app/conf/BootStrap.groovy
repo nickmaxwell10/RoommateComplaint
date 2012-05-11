@@ -1,6 +1,5 @@
 import com.roommatecomplaint.Role
 import com.roommatecomplaint.User;
-import com.roommatecomplaint.UserRole;
 
 import org.bson.types.ObjectId
 
