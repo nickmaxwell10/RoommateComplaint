@@ -1,7 +1,6 @@
 package com.roommatecomplaint
 
 class UserService {
-	
 	static transactional = 'mongo'
 
     def save(User user) {
