@@ -58,32 +58,6 @@ class LoginController {
 		}
 	}
 	
-	def fileUpload = {
-		if(request.method == 'POST') {
-	
-			Iterator itr = request.getFileNames();
-	
-			String vloc = "";
-			while(itr.hasNext())
-			{
-				MultipartFile mpFile = request.getFile(itr.next());
-				if (!mpFile.isEmpty())
-				{
-					String guid = UUID.randomUUID().toString()
-					// success
-					String _file = mpFile.getOriginalFilename().replace(" ", "_");
-					vloc += guid + "/" + _file;
-					String ext = _file.substring(_file.lastIndexOf(".")+1);
-					amazonS3Service.put (mpFile.getInputStream(), _file, guid, ext, mpFile.getSize())
-	
-				}
-			}
-		}
-		def model = [:]
-		model.user = springSecurityService.currentUser
-		render(view:'/index', model: model, params: null)
-	}
-	
 	/**
 	* Show the login page.
 	*/
@@ -96,7 +70,7 @@ class LoginController {
 		   return
 	   }
 	   render(view:'auth')
-   }
+    }
 	
 	def fbLogin = {
 		def redirectURI = createLink(absolute:true, action: 'fbCallback')
@@ -136,6 +110,32 @@ class LoginController {
 			redirect(action:"index")
 			return
 		}
+	}
+	
+	def fileUpload = {
+		if(request.method == 'POST') {
+	
+			Iterator itr = request.getFileNames();
+	
+			String vloc = "";
+			while(itr.hasNext())
+			{
+				MultipartFile mpFile = request.getFile(itr.next());
+				if (!mpFile.isEmpty())
+				{
+					String guid = UUID.randomUUID().toString()
+					// success
+					String _file = mpFile.getOriginalFilename().replace(" ", "_");
+					vloc += guid + "/" + _file;
+					String ext = _file.substring(_file.lastIndexOf(".")+1);
+					amazonS3Service.put (mpFile.getInputStream(), _file, guid, ext, mpFile.getSize())
+	
+				}
+			}
+		}
+		def model = [:]
+		model.user = springSecurityService.currentUser
+		render(view:'/index', model: model, params: null)
 	}
 
 	/**

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>New Case</title>
 		<style type="text/css" media="screen">
 			
 		</style>
@@ -16,9 +16,9 @@
 	</head>
 	<body>
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
+			<h1>New Case</h1>
 			<p>${user.name} ${user.uid}</p>
-			<g:link controller="case" action="newCase">New Case</g:link>
+			
 		</div>
 	</body>
 </html>
