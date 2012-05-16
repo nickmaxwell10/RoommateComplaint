@@ -10,7 +10,7 @@
 	<tr>
 		<td>defendant</td>
 		<td>
-			<input id="defendantId" name="defendantId" type="text" />
+			<input id="defendantName" type="text" />
 			<r:img dir="images" file="spinner.gif" id="defendantSpinner" style="display:none;" />
 		</td>
 	</tr>
