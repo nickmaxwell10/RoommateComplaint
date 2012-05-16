@@ -9,7 +9,10 @@
 	</tr>
 	<tr>
 		<td>defendant</td>
-		<td><input id="defendantId" name="defendantId" type="text" /></td>
+		<td>
+			<input id="defendantId" name="defendantId" type="text" />
+			<r:img dir="images" file="spinner.gif" id="defendantSpinner" style="display:none;" />
+		</td>
 	</tr>
 	<tr>
 		<td><input type="button" value="cancel" /></td>

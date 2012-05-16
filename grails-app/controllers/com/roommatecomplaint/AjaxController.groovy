@@ -15,7 +15,7 @@ class AjaxController {
 			def friendsJSON = new URL(friendsURL).getText()
 			def friends = JSON.parse(friendsJSON)
 			def friendData = friends.data
-			def filteredFriends = friendData.findAll{it.name.toString().find(term)}
+			def filteredFriends = friendData.findAll{it.name.toLowerCase().find(term.toLowerCase())}
 			def filteredFriendsJSON = filteredFriends.collect{ [label:it.name, value:it.id] }
 			render filteredFriendsJSON as JSON
 		}

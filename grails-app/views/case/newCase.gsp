@@ -14,7 +14,13 @@
 			  	}
 			  	
 			  	$( "#defendantId" ).autocomplete({
-					source: '/RoommateComplaint/ajax/filterFriends'
+					source: '/RoommateComplaint/ajax/filterFriends',
+					search: function(event, ui) { 
+				    	$('#defendantSpinner').show();
+				   	},
+				   	open: function(event, ui) {
+				    	$('#defendantSpinner').hide();
+				   	}
 				});
 			  
 			});
