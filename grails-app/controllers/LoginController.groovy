@@ -87,7 +87,7 @@ class LoginController {
 		String accessToken = result.tokenize("&")[0].tokenize("=")[1]
 		def meURL = "https://graph.facebook.com/me?access_token=" + accessToken
 		def meJSON = new URL(meURL).getText()
-		def me = JSON.parse(meJSON);
+		def me = JSON.parse(meJSON)
 		def userId = me["id"]
 		User user = User.findByUid(userId)
 		if(!user) {

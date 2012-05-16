@@ -27,7 +27,7 @@ class Case {
 
     static constraints = {
 		caseNumber blank: false, unique: true
-		plaintiffCaption nullable: true
-		plaintiffImgURL nullable: true
+		defendantCaption nullable: true
+		defendantImgURL nullable: true
     }
 }
