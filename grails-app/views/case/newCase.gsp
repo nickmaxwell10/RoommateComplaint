@@ -14,7 +14,7 @@
 			  	}
 			  	
 			  	$( "#defendantName" ).autocomplete({
-					source: '/RoommateComplaint/ajax/filterFriends',
+					source: '${grailsApplication.config.grails.serverURL}/ajax/filterFriends',
 					search: function(event, ui) { 
 				    	$('#defendantSpinner').show();
 				   	},
@@ -33,7 +33,14 @@
 		<div id="page-body" role="main">
 			<h1>New Case</h1>
 			<p>${user.name} ${user.uid}</p>
-			<g:form>
+			<g:hasErrors bean="${newCase}">
+			  <ul>
+			   <g:eachError var="err" bean="${newCase}">
+			       <li>${err}</li>
+			   </g:eachError>
+			  </ul>
+			</g:hasErrors>
+			<g:form action="newCase" enctype="multipart/form-data">
 				<g:render template="/templates/case/form" />
 				<g:hiddenField id="defendantId" name="defendantId"/>
 			</g:form>

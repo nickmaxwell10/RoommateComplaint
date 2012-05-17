@@ -18,11 +18,19 @@
 		<div id="page-body" role="main">
 			<h1>Case</h1>
 			<p>${user.name} ${user.uid}</p>
-			<!--p>${case.caseNumber}</p -->
-			<g:form method="post" action="fileUpload" enctype="multipart/form-data">
-				<input type="file" name="file" />
-				<input type="submit" />
-			</g:form>
+			<table style="margin-left: auto;margin-right: auto;">
+				<tr>
+					<td>Case Number</td>
+					<td>${_case.caseNumber}</td>
+				</tr>
+				<tr>
+					<td>Plaintiff Caption</td>
+					<td>${_case.plaintiffCaption}</td>
+				</tr>
+				<tr>
+					<td colspan="2"><img src="${_case.plaintiffImgURL}"></td>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>

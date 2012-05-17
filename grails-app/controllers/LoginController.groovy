@@ -18,11 +18,6 @@ import com.roommatecomplaint.Role
 import com.roommatecomplaint.User
 
 class LoginController {
-
-	/**
-	* Dependency injection for the s3 upload.
-	*/
-	def amazonS3Service
 	
 	/**
 	 * Dependency injection for the authenticationTrustResolver.
@@ -110,32 +105,6 @@ class LoginController {
 			redirect(action:"index")
 			return
 		}
-	}
-	
-	def fileUpload = {
-		if(request.method == 'POST') {
-	
-			Iterator itr = request.getFileNames();
-	
-			String vloc = "";
-			while(itr.hasNext())
-			{
-				MultipartFile mpFile = request.getFile(itr.next());
-				if (!mpFile.isEmpty())
-				{
-					String guid = UUID.randomUUID().toString()
-					// success
-					String _file = mpFile.getOriginalFilename().replace(" ", "_");
-					vloc += guid + "/" + _file;
-					String ext = _file.substring(_file.lastIndexOf(".")+1);
-					amazonS3Service.put (mpFile.getInputStream(), _file, guid, ext, mpFile.getSize())
-	
-				}
-			}
-		}
-		def model = [:]
-		model.user = springSecurityService.currentUser
-		render(view:'/index', model: model, params: null)
 	}
 
 	/**

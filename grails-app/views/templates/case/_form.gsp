@@ -5,12 +5,12 @@
 	</tr>
 	<tr>
 		<td>image</td>
-		<td><input type="file" name="image" /></td>
+		<td><input type="file" name="file" /></td>
 	</tr>
 	<tr>
 		<td>defendant</td>
 		<td>
-			<input id="defendantName" type="text" />
+			<g:textField name="defendantName" value="${defendantName}" />
 			<r:img dir="images" file="spinner.gif" id="defendantSpinner" style="display:none;" />
 		</td>
 	</tr>
