@@ -2,11 +2,8 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			
-		</style>
-		<r:script>
+    	<r:require modules="custom-bootstrap, bootstrap-responsive-css"/>
+    	<r:script>
           $(document).ready(function() {
 			  if (window.location.hash == '#_=_') {
 			  	window.location = window.location.href.substr(0, window.location.href.indexOf('#'));
@@ -15,10 +12,13 @@
       	</r:script>
 	</head>
 	<body>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>${user.name} ${user.uid}</p>
-			<g:link controller="case" action="newCase">New Case</g:link>
-		</div>
+		<g:render template="/templates/navbar" />
+		
+		<div class="container topContainer">
+
+	      <h1>Bootstrap starter template</h1>
+	      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+	
+	    </div>
 	</body>
 </html>

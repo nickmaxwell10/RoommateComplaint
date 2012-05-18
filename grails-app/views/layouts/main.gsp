@@ -1,7 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
    <head>
       <g:layoutTitle/>
-      <r:require modules="core"/>
       <r:layoutResources/>     
    </head>
    <body>

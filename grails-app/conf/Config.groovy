@@ -98,3 +98,15 @@ grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.roommatecomp
 grails.plugins.springsecurity.userLookup.usernamePropertyName = 'uid'
 grails.plugins.springsecurity.userLookup.passwordPropertyName = 'uid'
 grails.plugins.springsecurity.authority.className = 'com.roommatecomplaint.Role'
+
+// Twitter Bootstrap
+grails.resources.modules = {
+
+    'custom-bootstrap' {
+        dependsOn 'bootstrap, bootstrap-responsive-css'
+        resource url:[dir: 'less', file: 'custom-bootstrap.less'], attrs:[rel: "stylesheet/less", type:'css']
+    }
+
+}
+grails.plugins.twitterbootstrap.fixtaglib = true
+grails.plugins.twitterbootstrap.defaultBundle = 'bundle_bootstrap'

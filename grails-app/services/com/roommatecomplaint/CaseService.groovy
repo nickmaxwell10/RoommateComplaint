@@ -4,9 +4,9 @@ class CaseService {
 	static transactional = 'mongo'
 	
 	def save(Case _case) {
-		if(!_case.id) {
-			_case.caseNumber = nextCaseNumber()	
-		}
+//		if(!_case.id) {
+//			_case.caseNumber = nextCaseNumber()	
+//		}
 		
 		if(!_case.save()) {
 			return false

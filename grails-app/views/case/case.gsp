@@ -2,10 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Case</title>
-		<style type="text/css" media="screen">
-			
-		</style>
+    	<r:require modules="custom-bootstrap, bootstrap-responsive-css"/>
 		<r:script>
           $(document).ready(function() {
 			  if (window.location.hash == '#_=_') {
@@ -15,22 +12,25 @@
       	</r:script>
 	</head>
 	<body>
-		<div id="page-body" role="main">
-			<h1>Case</h1>
-			<p>${user.name} ${user.uid}</p>
-			<table style="margin-left: auto;margin-right: auto;">
-				<tr>
-					<td>Case Number</td>
-					<td>${_case.caseNumber}</td>
-				</tr>
-				<tr>
-					<td>Plaintiff Caption</td>
-					<td>${_case.plaintiffCaption}</td>
-				</tr>
-				<tr>
-					<td colspan="2"><img src="${_case.plaintiffImgURL}"></td>
-				</tr>
-			</table>
+		<g:render template="/templates/navbar" />
+		<div class="container topContainer">
+			<div class="hero-unit">
+				</br>
+				<div class="row">
+					<div class="span1">
+					 	<p>Plaintiff</p>
+			        	<img src="https://graph.facebook.com/${_case?.plaintiff?.uid}/picture"/>
+			        	</br>
+			          	<small>${_case?.plaintiff?.name}</small>
+			          	</br>
+			          	<small><g:formatDate format="EEE, MMM d yyyy HH:mm:ss" date="${_case?.dateCreated}"/></small>
+					</div>
+			        <div class="offset1 span8">
+			          <h2>${_case.plaintiffCaption}</h2>
+			           <img src="${_case.plaintiffImgURL}" style="max-width:600px;max-height:1000px;">
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

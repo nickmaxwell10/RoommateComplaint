@@ -11,7 +11,7 @@ class CaseController {
 	def caseService
 
     def index(Long id)  {
-		Case _case = Case.findByCaseNumber(id)
+		Case _case = Case.get(id)//findByCaseNumber(id)
 		def model = [:]
 		model._case = _case
 		model.user = springSecurityService.currentUser
@@ -49,7 +49,7 @@ class CaseController {
 			}
 			
 			if(caseService.save(newCase)) {
-				redirect(action:"index", id:newCase.caseNumber)
+				redirect(action:"index", id:newCase.id)
 				return
 			}
 		}
