@@ -11,7 +11,7 @@ class CaseController {
 	def caseService
 
     def index(Long id)  {
-		Case _case = Case.get(id)//findByCaseNumber(id)
+		Case _case = Case.get(id)
 		def model = [:]
 		model._case = _case
 		model.user = springSecurityService.currentUser

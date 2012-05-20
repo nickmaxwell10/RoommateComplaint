@@ -68,6 +68,7 @@ class LoginController {
     }
 	
 	def fbLogin = {
+		//${grailsApplication.config.grails.serverURL}/login/fbCallback
 		def redirectURI = createLink(absolute:true, action: 'fbCallback')
 		redirect(url: "https://www.facebook.com/dialog/oauth?client_id=${facebookKeys.clientCode}&redirect_uri=${redirectURI}")
 	}

@@ -6,7 +6,7 @@ import org.bson.types.ObjectId
 class BootStrap {
 
     def init = { servletContext ->
-		User.collection.getDB().dropDatabase()
+		//User.collection.getDB().dropDatabase()
 		String userAuthority = "ROLE_USER"
 		Role userRole = Role.findByAuthority(userAuthority)
 		if(!userRole) {
@@ -27,7 +27,6 @@ class BootStrap {
 			user.save()
 		}
 		
-		int i = 3
     }
     def destroy = {
     }
